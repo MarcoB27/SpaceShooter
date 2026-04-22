@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cyqqgordmh7pa"]
+
+[ext_resource type="Texture2D" uid="uid://chw6hppw72dhj" path="res://images/meteor.png" id="1_5civa"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5civa"]
+radius = 40.0
+height = 88.0
+
+[node name="Meteor" type="Area2D" unique_id=558737292]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=689687613]
+position = Vector2(178, 1)
+rotation = -0.7853982
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_5civa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1468862832]
+position = Vector2(163, 102)
+shape = SubResource("CapsuleShape2D_5civa")

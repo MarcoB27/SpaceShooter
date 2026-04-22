@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cbyp1xwa5d3e1"]
+
+[ext_resource type="Texture2D" uid="uid://dvv0qsq3m8ekt" path="res://images/bg.png" id="1_k5f4k"]
+[ext_resource type="PackedScene" uid="uid://wps0hpecyxnr" path="res://Scenes/player.tscn" id="1_tumq0"]
+[ext_resource type="PackedScene" uid="uid://cyqqgordmh7pa" path="res://Scenes/meteor.tscn" id="3_6phgx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6phgx"]
+size = Vector2(112.5, 733)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81xng"]
+size = Vector2(1372, 224)
+
+[node name="Level" type="Node2D" unique_id=1070527714]
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1098189661]
+position = Vector2(714, 369)
+texture = ExtResource("1_k5f4k")
+
+[node name="Player" parent="." unique_id=507019464 instance=ExtResource("1_tumq0")]
+position = Vector2(666, 532)
+
+[node name="Meteor" parent="." unique_id=1661029872 instance=ExtResource("3_6phgx")]
+position = Vector2(667, 142)
+
+[node name="Borders" type="Node2D" parent="." unique_id=804889143]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders" unique_id=248910691]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D" unique_id=649405237]
+position = Vector2(1341, 358.5)
+shape = SubResource("RectangleShape2D_6phgx")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borders" unique_id=2099870918]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2" unique_id=887392478]
+position = Vector2(-59, 361)
+shape = SubResource("RectangleShape2D_6phgx")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Borders" unique_id=1861007361]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3" unique_id=1119450885]
+position = Vector2(645, -108)
+shape = SubResource("RectangleShape2D_81xng")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Borders" unique_id=228330926]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4" unique_id=56062752]
+position = Vector2(640, 835)
+shape = SubResource("RectangleShape2D_81xng")
