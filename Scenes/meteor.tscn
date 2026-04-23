@@ -1,19 +1,26 @@
 [gd_scene format=3 uid="uid://cyqqgordmh7pa"]
 
-[ext_resource type="Texture2D" uid="uid://chw6hppw72dhj" path="res://images/meteor.png" id="1_5civa"]
+[ext_resource type="Script" uid="uid://brkwfl1v3w61x" path="res://Scenes/meteor.gd" id="1_wm1ig"]
+[ext_resource type="Texture2D" uid="uid://buvtpfh52pilt" path="res://images/Meteors/meteor1.png" id="2_wm1ig"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5civa"]
-radius = 40.0
-height = 88.0
+radius = 26.0
+height = 56.0
 
 [node name="Meteor" type="Area2D" unique_id=558737292]
+script = ExtResource("1_wm1ig")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=689687613]
-position = Vector2(178, 1)
+light_mask = 2
+visibility_layer = 9
+position = Vector2(161.1272, 109.53404)
 rotation = -0.7853982
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("1_5civa")
+scale = Vector2(0.4960681, 0.5153545)
+texture = ExtResource("2_wm1ig")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1468862832]
-position = Vector2(163, 102)
+light_mask = 2
+position = Vector2(161, 109)
 shape = SubResource("CapsuleShape2D_5civa")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

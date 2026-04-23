@@ -7,8 +7,18 @@
 script = ExtResource("1_cvnsp")
 
 [node name="PlayerImage" type="Sprite2D" parent="." unique_id=1421393706]
+visibility_layer = 6
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_v0iea")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=977738913]
 polygon = PackedVector2Array(0, -31, -41, 29, 42, 30)
+
+[node name="LaserStartPos" type="Marker2D" parent="." unique_id=1648051879]
+position = Vector2(0, -65)
+
+[node name="LaserTimer" type="Timer" parent="." unique_id=430960766]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]
