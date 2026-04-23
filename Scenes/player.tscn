@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c1m2ww5ve6bnk" path="res://images/ship.png" id="1_v0iea"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1256615166]
+collision_mask = 6
 script = ExtResource("1_cvnsp")
 
 [node name="PlayerImage" type="Sprite2D" parent="." unique_id=1421393706]
@@ -12,6 +13,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_v0iea")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=977738913]
+visibility_layer = 6
 polygon = PackedVector2Array(0, -31, -41, 29, 42, 30)
 
 [node name="LaserStartPos" type="Marker2D" parent="." unique_id=1648051879]

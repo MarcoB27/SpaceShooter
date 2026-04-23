@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://im3x6ohnsh5d" path="res://images/Stars/star2.png" id="5_754fn"]
 [ext_resource type="Texture2D" uid="uid://dkpv23jk56grl" path="res://images/Stars/star3.png" id="6_bvt00"]
 [ext_resource type="Texture2D" uid="uid://nbmk7ld6rudv" path="res://images/Stars/star4.png" id="7_oqgf2"]
+[ext_resource type="PackedScene" uid="uid://dn1vdyt00eyk8" path="res://Scenes/ui.tscn" id="8_754fn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8c0lf"]
 animations = [{
@@ -40,8 +41,11 @@ script = ExtResource("1_81xng")
 [node name="BG" type="Sprite2D" parent="." unique_id=1098189661]
 position = Vector2(714, 369)
 texture = ExtResource("1_k5f4k")
+metadata/_edit_lock_ = true
 
 [node name="Stars" type="Node2D" parent="." unique_id=1009479063]
+visibility_layer = 0
+metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D37" type="AnimatedSprite2D" parent="Stars" unique_id=454924501]
 position = Vector2(-0.06, -0.065)
@@ -341,32 +345,42 @@ frame_progress = 0.048415747
 position = Vector2(666, 532)
 
 [node name="Borders" type="Node2D" parent="." unique_id=804889143]
+metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Borders" unique_id=248910691]
 light_mask = 4
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D" unique_id=649405237]
+light_mask = 4
 position = Vector2(1341, 358.5)
 shape = SubResource("RectangleShape2D_6phgx")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Borders" unique_id=2099870918]
 light_mask = 4
+position = Vector2(1, 0)
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2" unique_id=887392478]
+light_mask = 4
 position = Vector2(-59, 361)
 shape = SubResource("RectangleShape2D_6phgx")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Borders" unique_id=1861007361]
 light_mask = 4
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3" unique_id=1119450885]
+light_mask = 4
 position = Vector2(645, -108)
 shape = SubResource("RectangleShape2D_81xng")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Borders" unique_id=228330926]
 light_mask = 4
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4" unique_id=56062752]
+light_mask = 4
 position = Vector2(640, 835)
 shape = SubResource("RectangleShape2D_81xng")
 
@@ -375,8 +389,12 @@ wait_time = 0.3
 autostart = true
 
 [node name="Meteors" type="Node2D" parent="." unique_id=1825503538]
+metadata/_edit_lock_ = true
 
 [node name="Lasers" type="Node2D" parent="." unique_id=2076056762]
+metadata/_edit_lock_ = true
+
+[node name="UI" parent="." unique_id=400525523 instance=ExtResource("8_754fn")]
 
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
 [connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]

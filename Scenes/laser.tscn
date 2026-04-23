@@ -4,18 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://cnrl1gv16llra" path="res://images/laser.png" id="1_r1bh0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1bh0"]
-size = Vector2(20, 90)
+size = Vector2(24.999998, 104.99999)
 
 [node name="Laser" type="Area2D" unique_id=994310644]
+collision_layer = 8
+collision_mask = 2
 script = ExtResource("1_mou6w")
 
 [node name="laserImage" type="Sprite2D" parent="." unique_id=1448600692]
 light_mask = 8
 visibility_layer = 2
-scale = Vector2(0.6, 0.172)
+scale = Vector2(0.2, 0.057)
 texture = ExtResource("1_r1bh0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=141072942]
-position = Vector2(1, 0.4999981)
-scale = Vector2(0.7, 0.7)
+position = Vector2(0.49999988, -0.5000005)
+scale = Vector2(0.2, 0.2)
 shape = SubResource("RectangleShape2D_r1bh0")

@@ -3,6 +3,7 @@ extends Area2D
 var speed: int
 var rotation_speed: int
 var direction_x: float 
+signal collision
 
 func _ready() -> void:
 	var rng := RandomNumberGenerator.new()
@@ -27,6 +28,11 @@ func _process(delta: float) -> void:
 	position += Vector2(direction_x, 1.0) * speed * delta
 	rotation_degrees += rotation_speed * delta
 
-func _on_body_entered(body: Node2D) -> void:
-	print('body entered')
-	print(body)
+func _on_body_entered(_body: Node2D) -> void:
+	collision.emit()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	area.queue_free()
+	queue_free()
+	
