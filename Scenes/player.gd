@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @export var speed: int = 500
+
+
 var can_shoot: bool = true
 
 signal laser(pos)

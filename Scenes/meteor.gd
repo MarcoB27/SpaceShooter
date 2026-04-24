@@ -19,9 +19,9 @@ func _ready() -> void:
 	position = Vector2(random_x, random_y)
 	
 	#speed / rotation / direction
-	speed = rng.randi_range(250, 600)
+	speed = rng.randi_range(600, 800)
 	direction_x = rng.randf_range(-1, 1)
-	rotation_speed = rng.randi_range(40, 100)
+	rotation_speed = rng.randi_range(40, 110)
 	
 	
 func _process(delta: float) -> void:

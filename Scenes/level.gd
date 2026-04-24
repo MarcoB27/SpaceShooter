@@ -5,7 +5,11 @@ var meteor_scene: PackedScene = load("res://Scenes/meteor.tscn")
 var laser_scene: PackedScene = load("res://Scenes/laser.tscn")
 var gameover_scene: PackedScene = load("res://Scenes/game_over.tscn")
 
-var health: int = 5
+@onready var sprite = $Player/PlayerImage
+@export var normal_texture: Texture2D = load("res://images/ship.png")
+@export var hurt_texture: Texture2D = load("res://images/ship_hit.png")
+
+var health: int = 3
 
 func _ready() -> void:
 	#set up level ui
@@ -40,9 +44,12 @@ func _on_meteor_timer_timeout() -> void:
 
 func _on_meteor_collision():
 	health -= 1
-	get_tree().call_group('ui', 'set_health', health)
+	sprite.texture = hurt_texture
+	get_tree().call_group("ui", "set_health", health)
 	if health <= 0:
-		get_tree().change_scene_to_packed(gameover_scene)
+		get_tree().call_deferred("change_scene_to_packed", gameover_scene)
+	await get_tree().create_timer(0.15).timeout
+	sprite.texture = normal_texture
 
 func _on_player_laser(pos) -> void:
 	var laser = laser_scene.instantiate()
